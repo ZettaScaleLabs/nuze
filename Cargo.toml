@@ -29,12 +29,12 @@ serde = "1.0.219"
 tempfile = "3.20.0"
 tracing-subscriber = "0.3.19"
 # NOTE(fuzzypixelz): when bumping this, don't forget to also bump `nu_zenoh::signature_ext::ZENOH_VERSION`
-zenoh = { version = "1.9.0", features = [
+zenoh = { version = "1.10.0", features = [
   "internal",
   "plugins",
   "shared-memory",
   "stats",
   "unstable",
 ] }
-zenoh-codec = "1.9.0"
-zenoh-protocol = "1.9.0"
+zenoh-codec = "1.10.0"
+zenoh-protocol = "1.10.0"

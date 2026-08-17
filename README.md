@@ -4,7 +4,7 @@
     <p>
         <a href="https://crates.io/crates/nuze"><img alt="Crates.io" src="https://img.shields.io/crates/v/nuze.svg"></a>
         <a href="https://www.nushell.sh/"><img alt="Nushell 0.114.0" src="https://img.shields.io/badge/nushell-0.114.0-blue.svg"></a>
-        <a href="https://zenoh.io/"><img alt="Zenoh 1.9.0" src="https://img.shields.io/badge/zenoh-1.9.0-blue.svg"></a>
+        <a href="https://zenoh.io/"><img alt="Zenoh 1.10.0" src="https://img.shields.io/badge/zenoh-1.10.0-blue.svg"></a>
     </p>
     <sub>Built by the <a href="https://zenoh.io">Zenoh</a> team at <a href="https://www.zettascale.tech">ZettaScale</a></sub>
 </div>
