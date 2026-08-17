@@ -29,7 +29,7 @@ pub(crate) fn bytes_to_value(bytes: &ZBytes, span: nu_protocol::Span) -> Value {
 pub(crate) fn value_to_bytes(value: &Value) -> Result<ZBytes, nu_protocol::ShellError> {
     match value {
         Value::String { val, .. } => Ok(ZBytes::from(val)),
-        Value::Binary { val, .. } => Ok(ZBytes::from(val)),
+        Value::Binary { val, .. } => Ok(ZBytes::from(val.as_ref())),
         _ => Err(ShellError::Generic(GenericError::new_internal(
             "Invalid value type",
             "Value must be a String or Binary",
