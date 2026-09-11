@@ -47,7 +47,7 @@ pub(crate) trait SignatureExt: Sized {
 
 impl SignatureExt for Signature {
     fn config(self) -> Self {
-        const ZENOH_VERSION: &str = "1.10.0";
+        const ZENOH_VERSION: &str = "1.10.1";
         self.optional(
             "config",
             SyntaxShape::Record(vec![].into()),

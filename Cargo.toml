@@ -8,33 +8,33 @@ edition = "2024"
 homepage = "http://zenoh.io"
 license = "EPL-2.0 OR Apache-2.0"
 repository = "https://github.com/ZettaScaleLabs/nu-zenoh"
-version = "0.5.0"
+version = "0.5.1"
 
 [workspace.dependencies]
 clap = "4.5.42"
 ctrlc = "3.4.7"
 dirs = "6.0.0"
 flume = "0.11.1"
-nu-cli = { version = "0.115.0" }
-nu-cmd-extra = { version = "0.115.0" }
-nu-cmd-lang = { version = "0.115.0" }
-nu-command = { version = "0.115.0" }
-nu-engine = { version = "0.115.0" }
-nu-explore = { version = "0.115.0" }
-nu-json = { version = "0.115.0" }
-nu-protocol = { version = "0.115.0" }
-nu-std = { version = "0.115.0" }
-nu-zenoh = { version = "0.5.0", path = "nu-zenoh" }
+nu-cli = { version = "0.115.1" }
+nu-cmd-extra = { version = "0.115.1" }
+nu-cmd-lang = { version = "0.115.1" }
+nu-command = { version = "0.115.1" }
+nu-engine = { version = "0.115.1" }
+nu-explore = { version = "0.115.1" }
+nu-json = { version = "0.115.1" }
+nu-protocol = { version = "0.115.1" }
+nu-std = { version = "0.115.1" }
+nu-zenoh = { version = "0.5.1", path = "nu-zenoh" }
 serde = "1.0.219"
 tempfile = "3.20.0"
 tracing-subscriber = "0.3.19"
 # NOTE(fuzzypixelz): when bumping this, don't forget to also bump `nu_zenoh::signature_ext::ZENOH_VERSION` and update the version matrix in README.md
-zenoh = { version = "1.10.0", features = [
+zenoh = { version = "1.10.1", features = [
   "internal",
   "plugins",
   "shared-memory",
   "stats",
   "unstable",
 ] }
-zenoh-codec = "1.10.0"
-zenoh-protocol = "1.10.0"
+zenoh-codec = "1.10.1"
+zenoh-protocol = "1.10.1"
