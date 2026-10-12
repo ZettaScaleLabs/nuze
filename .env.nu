@@ -2,18 +2,10 @@
 
 const cwd = path self | path dirname
 
-def main [] {
-    help main
-}
-
-def "main nufmt" [] {
-    topiary format **/*.nu
-}
-
-def "main test" [] {
+def "x test" [] {
     cd $cwd
 
-    cargo build -q --manifest-path ($cwd | path join Cargo.toml) -p nuze --bin nuze
+    cargo build --message-format=short --manifest-path ($cwd | path join Cargo.toml) -p nuze --bin nuze
     let nuze = $cwd | path join target debug nuze
 
     const always_exclude = "**/_*.nu"
