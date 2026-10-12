@@ -18,7 +18,7 @@ use nu_protocol::{
     engine::{Call, Command, EngineState, Stack},
     PipelineData, ShellError, Signature, SyntaxShape, Value,
 };
-use zenoh::key_expr::KeyExpr;
+use zenoh::key_expr::{keyexpr, KeyExpr};
 
 #[derive(Clone)]
 pub(crate) struct Includes;
@@ -109,6 +109,43 @@ impl Command for Intersects {
 
         Ok(PipelineData::Value(
             Value::bool(lhs.intersects(&rhs), call.head),
+            None,
+        ))
+    }
+}
+
+#[derive(Clone)]
+pub(crate) struct Autocanonize;
+
+impl Command for Autocanonize {
+    fn name(&self) -> &str {
+        "zenoh keyexpr autocanonize"
+    }
+
+    fn signature(&self) -> Signature {
+        Signature::build(self.name()).required("keyexpr", SyntaxShape::String, "Key-expression.")
+    }
+
+    fn description(&self) -> &str {
+        "Canonizes the given key-expression"
+    }
+
+    fn run(
+        &self,
+        engine_state: &EngineState,
+        stack: &mut Stack,
+        call: &Call,
+        _input: PipelineData,
+    ) -> Result<PipelineData, ShellError> {
+        let mut ke = call.req::<String>(engine_state, stack, 0)?;
+
+        keyexpr::autocanonize(&mut ke).map_err(|err| {
+            nu_protocol::LabeledError::new("Invalid key-expression, despite canonization")
+                .with_label(err.to_string(), call.arguments_span())
+        })?;
+
+        Ok(PipelineData::Value(
+            Value::string(ke.as_str(), call.head),
             None,
         ))
     }

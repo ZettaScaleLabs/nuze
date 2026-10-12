@@ -100,6 +100,7 @@ pub fn add_zenoh_context(mut engine_state: EngineState, options: Config) -> Engi
             |st| Box::new(cmd::config::Config::new(st.clone())),
             |_| Box::new(cmd::keyexpr::Includes),
             |_| Box::new(cmd::keyexpr::Intersects),
+            |_| Box::new(cmd::keyexpr::Autocanonize),
         ];
         for cmd in cmds {
             add_decl_with_short_mirror(&mut working_set, cmd(&state));
